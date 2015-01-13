@@ -69,11 +69,15 @@ gulp.task('connectDist', function () {
     port: 9999
   });
 });
+gulp.task('watch',function(){
+  gulp.watch('./app/scripts/*.js',['lint','connect']);
+  gulp.watch('./app/css/*.css',['connect']);
+})
 
 
 // default task
-gulp.task('default',
-  ['lint', 'connect']
+gulp.task('serve',
+  ['lint', 'connect','watch']
 );
 // build task
 gulp.task('build',  
