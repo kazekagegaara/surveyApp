@@ -1,0 +1,16 @@
+{
+  "name": "SurveyApp",
+  "version": "0.1.0",
+  "description": "A sample survey app using AngularJS and Bootstrap",
+  "main": "gulpfile.js",
+  "author": "Manit Singh Kalsi",
+  "dependencies": {
+    "bower": "^1.3.12",
+    "gulp": "^3.8.10",
+    "gulp-clean": "^0.3.1",
+    "gulp-connect": "^2.2.0",
+    "gulp-jshint": "^1.9.0",
+    "gulp-minify-css": "^0.3.11",
+    "gulp-uglify": "^1.0.2"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "SurveyApp",
+  "version": "0.1.0",
+  "authors": [
+    "Manit Singh Kalsi"
+  ],
+  "description": "A sample survey app using AngularJS and Bootstrap",
+  "main": "gulpfile.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"    
+  ],
+  "dependencies": {
+    "angular": "~1.3.8",
+    "angular-route": "~1.3.8",
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.1",
+    "fontawesome": "~4.2.0"
+  }
+}
