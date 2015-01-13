@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("surveyApp",["ngRoute"]).config(["$locationProvider","$routeProvider",function(r,e){r.hashPrefix("!"),e.when("/",{templateUrl:"./partials/partial1.html",controller:"MainController"}).otherwise({redirectTo:"/"})}]),angular.module("surveyApp").controller("MainController",["$scope",function(r){r.test="Testing..."}])}();

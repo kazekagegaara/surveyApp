@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="surveyApp">
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Survey App</title>
+    <!-- styles -->              
+    <!-- build:css lib/bootstrap.min.css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <!-- endbuild -->
+    <!-- build:css lib/font-awesome.min.css -->
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css"/>
+    <!-- endbuild -->
+    <link rel="stylesheet" href="css/main.css"/>
+    
+  </head>
+  <body>
+    <div class="container">
+      <h1>Survey App</h1>
+      <!-- views -->
+      <div ng-view>        
+      </div>
+    </div>    
+    <!-- scripts -->
+    <!-- build:js lib/jquery.min.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>  
+    <!-- endbuild -->                
+    <!-- build:js lib/angular.min.js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbuild -->
+    <!-- build:js lib/angular-route.min.js -->
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <!-- endbuild -->
+    <!-- build:js lib/bootstrap.min.js -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbuild -->
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
