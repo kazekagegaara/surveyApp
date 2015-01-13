@@ -2,7 +2,8 @@
 <html ng-app="surveyApp">
   <head lang="en">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <base href="/">  
     <title>Survey App</title>
     <!-- styles -->              
     <link rel="stylesheet" href="lib/bootstrap.min.css"/>
@@ -12,7 +13,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Survey App</h1>
+      <h1>Survey App</h1>      
       <!-- views -->
       <div ng-view>        
       </div>
@@ -22,6 +23,10 @@
     <script src="lib/angular.min.js"></script>
     <script src="lib/angular-route.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/app.js"></script>    
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/surveyController.js"></script>
+    <script src="scripts/controllers/surveyEndController.js"></script>
+    <script src="scripts/controllers/settingsController.js"></script>
   </body>
 </html>

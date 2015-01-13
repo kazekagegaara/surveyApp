@@ -27,12 +27,20 @@ gulp.task('minify-css', function() {
     .pipe(gulp.dest('./dist/'))
 });
 gulp.task('minify-js', function() {
-  gulp.src(['./app/scripts/*.js', '!./app/bower_components/**'])
+  gulp.src(['./app/scripts/*.js','!./app/bower_components/**'])
     .pipe(uglify({
       // inSourceMap:
       // outSourceMap: "app.js.map"
     }))
     .pipe(gulp.dest('./dist/scripts/'))
+});
+gulp.task('minify-controller-js',function(){
+  gulp.src(['./app/scripts/controllers/*.js'])
+    .pipe(uglify({
+      // inSourceMap:
+      // outSourceMap: "app.js.map"
+    }))
+    .pipe(gulp.dest('./dist/scripts/controllers/'))
 });
 gulp.task('copy-html-files', function () {
   gulp.src('./app/**/*.html')
@@ -81,5 +89,5 @@ gulp.task('serve',
 );
 // build task
 gulp.task('build',  
-  ['lint', 'minify-css', 'minify-js', 'copy-html-files', 'copy-bower-components', 'htmlref']
+  ['lint', 'minify-css', 'minify-js', 'minify-controller-js','copy-html-files', 'copy-bower-components', 'htmlref']
 );
