@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("surveyApp").controller("surveyEndController",["$scope","$location",function(){console.log("in survey end")}])}();
