@@ -1,1 +1,0 @@
-Cordova code goes in this folder

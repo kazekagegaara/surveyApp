@@ -1,1 +1,0 @@
-!function(){"use strict";angular.module("surveyApp").controller("settingsController",["$scope","$location",function(){console.log("in settings")}])}();
