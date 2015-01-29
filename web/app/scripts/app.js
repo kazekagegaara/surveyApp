@@ -19,7 +19,7 @@
           templateUrl: "/partials/surveyEnd.html",
           controller: "surveyEndController"
         })
-        .when("/surveyEnd",{
+        .when("/settings",{
           templateUrl: "/partials/settings.html",
           controller: "settingsController"
         })

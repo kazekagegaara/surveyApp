@@ -3,8 +3,8 @@
 'use strict';
 	
 	//Load controller
-  	angular.module('surveyApp').controller('surveyController', ['$scope','$location',function($scope,$location) {
-      	console.log("in survey");  		
+  	angular.module('surveyApp').controller('surveyEndController', ['$scope','$location',function($scope,$location) {
+      	console.log("in survey end");  		
     }
   ]);
 
