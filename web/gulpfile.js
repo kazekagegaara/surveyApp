@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var clean = require('gulp-clean');
 var usemin = require('gulp-usemin');
+var ngAnnotate = require('gulp-ng-annotate');
 
 // tasks
 gulp.task('lint', function() {
@@ -28,6 +29,7 @@ gulp.task('minify-css', function() {
 });
 gulp.task('minify-js', function() {
   gulp.src(['./app/scripts/*.js','!./app/bower_components/**'])
+    .pipe(ngAnnotate())
     .pipe(uglify({
       // inSourceMap:
       // outSourceMap: "app.js.map"
@@ -36,15 +38,29 @@ gulp.task('minify-js', function() {
 });
 gulp.task('minify-controller-js',function(){
   gulp.src(['./app/scripts/controllers/*.js'])
+    .pipe(ngAnnotate())
     .pipe(uglify({
       // inSourceMap:
       // outSourceMap: "app.js.map"
     }))
     .pipe(gulp.dest('./dist/scripts/controllers/'))
 });
+gulp.task('minify-factory-js',function(){  
+  gulp.src(['./app/scripts/factory/*.js'])
+    .pipe(ngAnnotate())
+    .pipe(uglify({
+      // inSourceMap:
+      // outSourceMap: "app.js.map"
+    }))
+    .pipe(gulp.dest('./dist/scripts/factory/'))
+});
 gulp.task('copy-html-files', function () {
   gulp.src('./app/**/*.html')
     .pipe(gulp.dest('dist/'));
+});
+gulp.task('copy-local-json', function () {
+  gulp.src('./app/json/*.json')
+    .pipe(gulp.dest('dist/json/'));
 });
 gulp.task('copy-bower-components', function () {
   gulp.src([
@@ -57,6 +73,10 @@ gulp.task('copy-bower-components', function () {
   	'./app/bower_components/jquery/dist/jquery.min.map'
   	])      
     .pipe(gulp.dest('dist/lib/'));    
+});
+gulp.task('fonts', function(){
+  gulp.src(['./app/bower_components/fontawesome/fonts/fontawesome-webfont.*'])
+  .pipe(gulp.dest('dist/fonts/'));
 });
 gulp.task('htmlref', function() {
 	gulp.src('./app/index.html')	
@@ -89,5 +109,5 @@ gulp.task('serve',
 );
 // build task
 gulp.task('build',  
-  ['lint', 'minify-css', 'minify-js', 'minify-controller-js','copy-html-files', 'copy-bower-components', 'htmlref']
+  ['lint', 'minify-css', 'minify-js', 'minify-controller-js','minify-factory-js','copy-html-files','copy-local-json','copy-bower-components', 'fonts','htmlref']
 );

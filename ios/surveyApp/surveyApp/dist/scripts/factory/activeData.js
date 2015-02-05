@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("surveyApp").service("activeData",function(){this.questions=[],this.surveyID="",this.setSurveyQuestions=function(t){this.questions=t},this.getSurveyQuestions=function(){return this.questions},this.setSurveyID=function(t){this.surveyID=t},this.getSurveyID=function(){return this.surveyID}})}();

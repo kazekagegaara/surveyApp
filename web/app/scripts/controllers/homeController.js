@@ -29,31 +29,39 @@
         	}    	  			
   		};
 
-  		$scope.surveyIDsuccess = function(data, status, headers, config){
-  			var nextDueAtFinal = new Date();  
-        var nextDueSurveyID = "";			
-  			angular.forEach(data, function(value, key) {
-				angular.forEach(value,function(val,k){
-					var nextDate = new Date(val.nextDueAt);					
-          // console.log(nextDueAtFinal + " " + nextDate);
-					if(k === 0){
-						nextDueAtFinal = nextDate;
-            nextDueSurveyID = val.surveyID;
-          }
-					else if(nextDueAtFinal > nextDate){            
-						nextDueAtFinal = nextDate;
-            nextDueSurveyID = val.surveyID;
-					}
-          // console.log(nextDueAtFinal);          
-				});        
-			});
-			console.log(nextDueAtFinal);
-      console.log(nextDueSurveyID);
-      $scope.nextDueSurveyID = nextDueSurveyID;
-			if(nextDueAtFinal.yyyymmdd() == new Date().yyyymmdd())
-				$scope.surveyMessage = "You have no surveys due. Please check in again later.";
-			else			
-				$scope.surveyMessage = "You have a survey due at " + nextDueAtFinal +". To begin survey, please click on the Start Survey button.";
+  		$scope.surveyIDsuccess = function(data, status, headers, config){  			        
+        var dates = [];
+        if(data.message == "Success"){
+          angular.forEach(data.surveys, function(value,key){
+            console.log(value.nextDueAt);
+            dates.push(value.nextDueAt);
+          });
+          dates.sort(function(a, b){
+            return Date.parse(a) - Date.parse(b);
+          });
+          console.log(dates);         
+          var nextDueAtFinal = dates[0];
+          var nextDueSurveyID = 0;
+          angular.forEach(data.surveys, function(value,key){
+            if(value.nextDueAt == nextDueAtFinal)
+              $scope.nextDueSurveyID = value.surveyInstanceID;
+          });
+          console.log($scope.nextDueSurveyID);  
+          activeData.setSurveyID($scope.nextDueSurveyID);
+          $scope.surveyMessage = "You have a survey due at " + nextDueAtFinal +". To begin survey, please click on the Start Survey button.";
+        }
+        else if(data.message == "You have no active surveys"){
+          $scope.surveyMessage = "You have no surveys due. Please check in again later.";
+        }
+        else if(data.message == "Your PIN is not active"){
+          $scope.surveyMessage = "Your PIN is not active. Please contact the administrator.";
+        }
+        else if(data.message == "The PIN is invalid"){
+          $scope.surveyMessage = "Your PIN is not invalid. Please contact the administrator.";
+        }
+        else if(data.message == "Unexpected Error"){
+          $scope.surveyMessage = "Unexpected Error. Please contact the administrator.";
+        }
   		};
 
   		$scope.serviceError = function(data, status, headers, config){
@@ -65,6 +73,7 @@
         console.log($scope.nextDueSurveyID);
         var payloadForService = '{"surveyID":'+$scope.nextDueSurveyID+'}';
         console.log(payloadForService);
+        /*jshint newcap: false */
         var getSurveyCall = new serviceCall("getSurveyID","GET");
         getSurveyCall.call(payloadForService,$scope.getSurveySuccess,$scope.serviceError,"json/getSurvey.json");        
       };
