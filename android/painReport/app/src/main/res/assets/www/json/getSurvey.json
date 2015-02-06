@@ -1,0 +1,57 @@
+{
+    "surveyID": 45678,
+    "questions": [
+        {
+            "quesID": 101,
+            "questionType": "multiChoiceSingleCorrect",
+            "questionText": "Some sample question One?",
+            "answerOptions": [
+                {
+                    "answerID": 501,
+                    "answerText": "Some sample answer One"
+                },
+                {
+                    "answerID": 502,
+                    "answerText": "Some sample answer Two"
+                },
+                {
+                    "answerID": 503,
+                    "answerText": "Some sample answer Three"
+                },
+                {
+                    "answerID": 504,
+                    "answerText": "Some sample answer Four"
+                }
+            ]
+        },
+        {
+            "quesID": 102,
+            "questionType": "multiChoiceSingleCorrect",
+            "questionText": "Some sample question Two?",
+            "answerOptions": [
+                {
+                    "answerID": 501,
+                    "answerText": "Some sample answer"
+                },
+                {
+                    "answerID": 502,
+                    "answerText": "Some sample answer"
+                },
+                {
+                    "answerID": 503,
+                    "answerText": "Some sample answer"
+                },
+                {
+                    "answerID": 504,
+                    "answerText": "Some sample answer"
+                }
+            ]
+        },
+        {
+            "quesID": 103,
+            "questionType": "bodyPain",
+            "questionText": "Please select the body area in which you feel the most pain.",
+            "answerOptions": []
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default navbar-static-top">    
+    <a class="navbar-brand brand-text text-center fillWidth" href="#">
+        {{title}}
+    </a>    
+</nav>
+<div class="text-center">
+	<div class="col-sm-6 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 ">
+		<input type="text" ng-model="pin" id="pin" class="form-control" placeholder="Enter PIN">
+		<input type="text" ng-model="serverSettings" id="serverSettings" class="form-control" placeholder="Enter Server Address">
+	</div>
+	<div class="col-sm-6 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 customBtn">
+		<button type="button" class="btn btn-primary btn-block" ng-click="saveSettings()">Save</button>
+	</div>
+	<div class="col-sm-6 col-md-6 col-lg-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 customBtn">
+		<button type="button" class="btn btn-primary btn-block" ng-click="changePage('/home')">Cancel</button>
+	</div>
+</div>

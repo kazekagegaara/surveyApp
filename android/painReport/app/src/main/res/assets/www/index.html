@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="surveyApp">
+  <head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">      
+    <title>Survey App</title>
+    <!-- styles -->              
+    <link rel="stylesheet" href="lib/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    
+  </head>
+  <body>
+    <div>                        
+      <!-- views -->
+      <div ng-view>                
+      </div>
+    </div>    
+    <!-- scripts -->
+    <script src="lib/jquery.min.js"></script>                
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>    
+    <script src="scripts/factory/serviceCall.js"></script>
+    <script src="scripts/factory/activeData.js"></script>
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/surveyController.js"></script>
+    <script src="scripts/controllers/surveyEndController.js"></script>
+    <script src="scripts/controllers/settingsController.js"></script>
+  </body>
+</html>
